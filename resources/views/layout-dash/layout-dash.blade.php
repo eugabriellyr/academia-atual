@@ -121,7 +121,7 @@
                                                 class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
                                             <li><a href="{{ route('dashboard.adm.alunos.index') }}">Exemplo</a></li>
-                                            <li><a href="page_404.html">Cad Funcionários</a></li>
+                                            <li><a href="{{ route('dashboard.adm.func.create') }}">Cad Funcionários</a></li>
                                         </ul>
                                     </li>
 
@@ -749,7 +749,7 @@
                     <li><a><i class="fa fa-windows"></i>Cadastro<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ route('dashboard.adm.func.index') }}">Cad Alunos</a></li>
-                            <li><a href="page_404.html">Cad Funcionários</a></li>
+                            <li><a href="{{ route('dashboard.adm.func.create') }}">Cad Funcionários</a></li>
                         </ul>
                     </li>
 
@@ -939,6 +939,13 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('dash/build/js/custom.min.js') }}"></script>
+
+    {{-- Link JQUERY --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+     {{-- LINK JQUERY --}}
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
 </body>
 
 </html>

@@ -38,4 +38,12 @@ class AdministradorController extends Controller
         return view('dashboard.adm.func.index', compact('funcionario', 'listaFunc'));
     }
 
+    public function createFunc(){
+        $idFunc = session('id');
+        $funcionario = Funcionario::find($idFunc);
+
+        $listaFunc = Funcionario::all();
+
+        return view('dashboard.adm.func.create', compact('funcionario'));
+    }
 }

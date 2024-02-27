@@ -11,7 +11,7 @@
         <div class="">
             <div class="page-title">
                 <div class="title_left">
-                    <h3>Tables <small>Some examples to get you started</small></h3>
+                    <h3>Funcionários <small></small></h3>
                 </div>
 
                 <div class="title_right">
@@ -32,7 +32,7 @@
                 <div class="col-md-6 col-sm-6  ">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>Basic Tables <small>basic table subtitle</small></h2>
+                            <h2>Lista Funcionários <small> - editar/desativar</small></h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                 </li>
@@ -54,10 +54,11 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th>Id</th>
                                         <th>Nome</th>
                                         <th>Email</th>
                                         <th>Telefone</th>
+                                        <th>Cargo</th>
                                         <th>Editar</th>
                                         <th>Desativar</th>
                                     </tr>
@@ -66,23 +67,23 @@
 
                                     @foreach ($listaFunc as $funcionario)
                                         <tr>
-                                            <th scope="row">1</th>
                                             <td>{{ $funcionario->idFuncionario }}</td>
                                             <td>{{ $funcionario->nomeFuncionario }}</td>
                                             <td>{{ $funcionario->emailFuncionario }}</td>
-                                            <td>{{ $funcionario->telefoneFuncionario }}</td>
+                                            <td>{{ $funcionario->foneFuncionario }}</td>
+                                            <td>{{ $funcionario->cargoFuncionario }}</td>
                                             <td>
-                                                {{-- <a href="{{ route('dashboard.adm.func.edit', $funcionario->idFuncionario) }}" --}}
+                                                <a href="{{ route('dashboard.adm.func.edit', $funcionario->idFuncionario) }}"
                                                     class="btn btn-primary">Editar</a></td>
                                             <td>
                                                 <form
-                                                    {{-- action="{{ route('dashboard.adm.func.outdate', $funcionario->idFuncionario) }}" --}}
+                                                action="{{ route('dashboard.adm.func.outdated', $funcionario->idFuncionario) }}"
                                                     method="POST" style="display: inline">
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Excluir</button>
                                                 </form>
                                             </td>
-                                            <td>@mdo</td>
+                                            {{-- <td>@mdo</td> --}}
                                         </tr>
                                     @endforeach
                                 </tbody>

@@ -1,3 +1,18 @@
 .col-md-6{
-    max-width: 100%;
+    max-width: 50%;
+}
+
+.x_content{
+    width: 100%;
+}
+
+.bloco
+{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.teste{
+    display: flex;
 }
