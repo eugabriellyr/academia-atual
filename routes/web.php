@@ -66,9 +66,15 @@ route::get('/modalidade/judo', [ModalidadeController::class, 'judo'])->name('mod
 route::middleware(['autenticacao:administrativo'])->group(function(){
 route::get('/dashboard/admin',[AdministradorController::class, 'adm'])->name('dashboard.adm.admin');
 
-// ROUTES CRUD ALUNO
+// ROUTES CRUD FUNCIONARIOS
+route::get( 'dashboard/admin/funcionario', [AdministradorController::class, 'indexFunc'])->name('dashboard.adm.func.index'); //Listar
 
-route::get('/dashboard/admin/alunos',[AdministradorController::class, 'indexFunc'])->name('dashboard.adm.alunos.index');
+// route::get('/dashboard/admin/funcionario/create',[AdministradorController::class, 'createFunc'])->name('dashboard.adm.func.create'); //Exibe o formulario de cadastro
+// route::get('/dashboard/admin/funcionario/',[AdministradorController::class, 'cadFunc'])->name('dashboard.adm.func.cad'); //Processa o formulário de cadastro
+route::get('/dashboard/admin/funcionario/{id}/edit',[AdministradorController::class, 'editFunc'])->name('dashboard.adm.func.edit'); //Editar
+// route::get('/dashboard/admin/funcionario/{id}/',[AdministradorController::class, 'updateFunc'])->name('dashboard.adm.func.update'); //Atualizar
+// route::get('/dashboard/admin/funcionario/{id}/',[AdministradorController::class, 'outdatedFunc'])->name('dashboard.adm.func.outdated'); //Desatualizar
+
 });
 
 

@@ -35,7 +35,7 @@ class AdministradorController extends Controller
         $listaFunc = Funcionario::all();
         // dd($listaFunc);
 
-        return view('dashboard.adm.alunos.index', compact('funcionario', 'listaFunc'));
+        return view('dashboard.adm.func.index', compact('funcionario', 'listaFunc'));
     }
 
 }

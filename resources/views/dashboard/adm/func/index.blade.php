@@ -65,35 +65,33 @@
                                 <tbody>
 
                                     @foreach ($listaFunc as $funcionario)
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>{{ $funcionario->nomeFuncionario }}</td>
-                                        <td>{{ $funcionario->emailFuncionario }}</td>
-                                        <td>{{ $funcionario->telefoneFuncionario }}</td>
-
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>{{ $funcionario->idFuncionario }}</td>
+                                            <td>{{ $funcionario->nomeFuncionario }}</td>
+                                            <td>{{ $funcionario->emailFuncionario }}</td>
+                                            <td>{{ $funcionario->telefoneFuncionario }}</td>
+                                            <td>
+                                                {{-- <a href="{{ route('dashboard.adm.func.edit', $funcionario->idFuncionario) }}" --}}
+                                                    class="btn btn-primary">Editar</a></td>
+                                            <td>
+                                                <form
+                                                    {{-- action="{{ route('dashboard.adm.func.outdate', $funcionario->idFuncionario) }}" --}}
+                                                    method="POST" style="display: inline">
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Excluir</button>
+                                                </form>
+                                            </td>
+                                            <td>@mdo</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
-
                         </div>
                     </div>
                 </div>
 
-
-                          <div class="clearfix"></div>
+                <div class="clearfix"></div>
 
                 <div class="col-md-12 col-sm-12  ">
                     <div class="x_panel">
