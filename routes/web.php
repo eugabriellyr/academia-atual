@@ -68,11 +68,10 @@ route::get('/dashboard/admin',[AdministradorController::class, 'adm'])->name('da
 
 // ROUTES CRUD FUNCIONARIOS
 route::get( 'dashboard/admin/funcionario', [AdministradorController::class, 'indexFunc'])->name('dashboard.adm.func.index'); //Listar
-
 route::get('/dashboard/admin/funcionario/create',[AdministradorController::class, 'createFunc'])->name('dashboard.adm.func.create'); //Exibe o formulario de cadastro
-// route::get('/dashboard/admin/funcionario/',[AdministradorController::class, 'cadFunc'])->name('dashboard.adm.func.create'); //Processa o formulário de cadastro
+route::get('/dahsboard/admin/funcionario',[AdministradorController::class, 'cadFunc'])->name('dashboard.admin.func.cad'); //Processa o formulário de cadastro
 route::get('/dashboard/admin/funcionario/{id}/edit',[AdministradorController::class, 'editFunc'])->name('dashboard.adm.func.edit'); //Editar
-// route::get('/dashboard/admin/funcionario/{id}/',[AdministradorController::class, 'updateFunc'])->name('dashboard.adm.func.update'); //Atualizar
+route::get('/dashboard/admin/funcionario/{id}/',[AdministradorController::class, 'updateFunc'])->name('dashboard.adm.func.update'); //Atualizar
 route::get('/dashboard/admin/funcionario/{id}/',[AdministradorController::class, 'outdatedFunc'])->name('dashboard.adm.func.outdated'); //Desatualizar
 
 });
@@ -83,6 +82,9 @@ route::get('/dashboard/admin/funcionario/{id}/',[AdministradorController::class,
 // DASH
 route::middleware(['autenticacao:aluno'])->group(function(){
 route::get('/dashboard/aluno',[AlunoController::class, 'aluno'])->name('dashboard.aluno.aluno');
+
+route::get( 'dashboard/aluno/perfil', [AlunoController::class, 'perfill'])->name('dashboard.aluno.perfil.perfill'); //Listar
+
 });
 
 

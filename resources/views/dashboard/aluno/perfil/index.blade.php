@@ -4,7 +4,6 @@
 @section('title','Administrador')
 
 @section('conteudo-dash')
-{{-- Tudo que terá no dash --}}
- {{-- <h1>{{ $funcionario->nomeFuncionario }}</h1> --}}
-@endsection
 
+
+@endsection

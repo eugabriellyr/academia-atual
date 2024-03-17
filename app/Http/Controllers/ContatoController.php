@@ -70,7 +70,6 @@ class ContatoController extends Controller
              newsLetter::create($validarDadosNew->validated());
 
              return response()->json(['success' => 'Email salvo com sucesso!']);
-
         }
     }
 

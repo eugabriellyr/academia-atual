@@ -7,12 +7,12 @@
    {{-- Tudo que terá no dash --}}
     <section class="content">
         <div class="teste-meu">
-      <h1>Bem vindo (a)<span>{{ $funcionario->nomeFuncionario }}</span></h1>
+      {{-- <h1>Bem vindo (a)<span>{{ $funcionario->nomeFuncionario }}</span></h1> --}}
 
         </div>
     </section>
 
-    
+
 
 @endsection
 

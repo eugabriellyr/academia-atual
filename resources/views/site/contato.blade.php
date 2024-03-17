@@ -184,6 +184,11 @@
                             <div class="form-btn col-12">
                                 <button class="btn" type="submit" onclick="formContato(event)">Enviar Mensagem</button>
                                 <div id="contatoMensagem" class="contatoMensagem"></div>
+                                <style>
+                                    .contatoMensagem{
+                                        color: brown
+                                    }
+                                </style>
                                 {{-- mudar pra mensagemContato --}}
                             </div>
                         </form>

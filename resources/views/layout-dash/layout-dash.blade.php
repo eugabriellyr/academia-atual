@@ -7,37 +7,35 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="{{ asset('dash/images/favicon.ico') }}" type="image/ico" />
+	<link rel="icon" href="{{ asset('dash/images/favicon.ico') }}" type="image/ico" />
 
     <title> @yield('title') - Academia Viva Bem</title>
 
-    <!-- Bootstrap -->
-    <link href="{{ asset('dash/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="{{ asset('dash/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="{{ asset('dash/vendors/nprogress/nprogress.css') }}" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="{{ asset('dash/vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
+<!-- Bootstrap -->
+<link href="{{ asset('dash/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="{{ asset('dash/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+<!-- NProgress -->
+<link href="{{ asset('dash/vendors/nprogress/nprogress.css') }}" rel="stylesheet">
+<!-- iCheck -->
+<link href="{{ asset('dash/vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
 
-    <!-- bootstrap-progressbar -->
-    <link href="{{ asset('dash/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') }}"
-        rel="stylesheet">
-    <!-- JQVMap -->
-    <link href="{{ asset('dash/vendors/jqvmap/dist/jqvmap.min.css') }}" rel="stylesheet" />
-    <!-- bootstrap-daterangepicker -->
-    <link href="{{ asset('dash/vendors/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
+<!-- bootstrap-progressbar -->
+<link href="{{ asset('dash/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') }}" rel="stylesheet">
+<!-- JQVMap -->
+<link href="{{ asset('dash/vendors/jqvmap/dist/jqvmap.min.css') }}" rel="stylesheet"/>
+<!-- bootstrap-daterangepicker -->
+<link href="{{ asset('dash/vendors/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
 
-    <!-- Custom Theme Style -->
-    <link href="{{ asset('dash/build/css/custom.min.css') }}" rel="stylesheet">
+<!-- Custom Theme Style -->
+<link href="{{ asset('dash/build/css/custom.min.css') }}" rel="stylesheet">
 
-    <link href="{{ 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' }}" rel="stylesheet">
+<link href="{{ asset('dash/dash.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('dash/dash.css') }}" rel="stylesheet">
 
 </head>
 
-<body class="nav-md">
+<body class="nav-md" style="background: #fff">
 
     <div class="container body">
         <div class="main_container">
@@ -71,13 +69,13 @@
                             <div class="menu_section">
                                 <h3>Geral</h3>
                                 <ul class="nav side-menu">
-                                    <li><a href="#"><i class="fa fa-home"></i> Perfil <span
+                                    <li><a href="{{ route('dashboard.aluno.perfil.perfill') }}"><i class="fa fa-home"></i> Perfil <span
                                                 class="fa fa-chevron-down"></span></a>
                                         {{-- <ul class="nav child_menu">
                                     <li><a href="{{ route('admin.func.index') }}">Sub para teste</a></li>
                                 </ul> --}}
                                     </li>
-                                    <li><a href="{{ route('dashboard.adm.func.index') }}"><i class="fa fa-edit"></i>
+                                    <li><a href="#"><i class="fa fa-edit"></i>
                                             Meus Treinos <span class="fa fa-chevron-down"></span></a>
                                         {{-- <ul class="nav child_menu">
                                     <li><a href="form.html">Sub para teste</a></li>
@@ -120,8 +118,8 @@
                                     <li><a><i class="fa fa-windows"></i>Extra<span
                                                 class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
-                                            <li><a href="{{ route('dashboard.adm.alunos.index') }}">Exemplo</a></li>
-                                            <li><a href="{{ route('dashboard.adm.func.create') }}">Cad Funcionários</a></li>
+                                            <li><a href="#">Exemplo</a></li>
+                                            <li><a href="#">Cad Funcionários</a></li>
                                         </ul>
                                     </li>
 
@@ -274,7 +272,7 @@
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
-                        <h2>{{ $funcionario->nomeFuncionario }}</h2>
+                        <h2>{{ $usuario->nomeFuncionario }}</h2>
                     </div>
                 </div>
                 <!-- /menu profile quick info -->
@@ -698,7 +696,7 @@
                                         <li><a href="{{ route('admin.func.index') }}">Sub para teste</a></li>
                                     </ul> --}}
                     </li>
-                    <li><a href="{{ route('dashboard.adm.func.index') }}"><i class="fa fa-edit"></i>
+                    <li><a href="#"><i class="fa fa-edit"></i>
                             Alunos <span class="fa fa-chevron-down"></span></a>
                         {{-- <ul class="nav child_menu">
                                         <li><a href="form.html">Sub para teste</a></li>
@@ -884,6 +882,11 @@
     {{-- FIM ADMINISTRADOR --}}
     @endif
 
+    <style>
+        .body{
+            background: #fff
+        }
+    </style>
 
     <section class="">
         @yield('conteudo-dash')
@@ -899,52 +902,46 @@
     </div>
     </div>
 
-    <!-- jQuery -->
-    <script src="{{ asset('dash/vendors/jquery/dist/jquery.min.js') }}"></script>
-    <!-- Bootstrap -->
-    <script src="{{ asset('dash/vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-    <!-- FastClick -->
-    <script src="{{ asset('dash/vendors/fastclick/lib/fastclick.js') }}"></script>
-    <!-- NProgress -->
-    <script src="{{ asset('dash/vendors/nprogress/nprogress.js') }}"></script>
-    <!-- Chart.js -->
-    <script src="{{ asset('dash/vendors/Chart.js/dist/Chart.min.js') }}"></script>
-    <!-- gauge.js -->
-    <script src="{{ asset('dash/vendors/gauge.js/dist/gauge.min.js') }}"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="{{ asset('dash/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js') }}"></script>
-    <!-- iCheck -->
-    <script src="{{ asset('dash/vendors/iCheck/icheck.min.js') }}"></script>
-    <!-- Skycons -->
-    <script src="{{ asset('dash/vendors/skycons/skycons.js') }}"></script>
-    <!-- Flot -->
-    <script src="{{ asset('dash/vendors/Flot/jquery.flot.js') }}"></script>
-    <script src="{{ asset('dash/vendors/Flot/jquery.flot.pie.js') }}"></script>
-    <script src="{{ asset('dash/vendors/Flot/jquery.flot.time.js') }}"></script>
-    <script src="{{ asset('dash/vendors/Flot/jquery.flot.stack.js') }}"></script>
-    <script src="{{ asset('dash/vendors/Flot/jquery.flot.resize.js') }}"></script>
-    <!-- Flot plugins -->
-    <script src="{{ asset('dash/vendors/flot.orderbars/js/jquery.flot.orderBars.js') }}"></script>
-    <script src="{{ asset('dash/vendors/flot-spline/js/jquery.flot.spline.min.js') }}"></script>
-    <script src="{{ asset('dash/vendors/flot.curvedlines/curvedLines.js') }}"></script>
-    <!-- DateJS -->
-    <script src="{{ asset('dash/vendors/DateJS/build/date.js') }}"></script>
-    <!-- JQVMap -->
-    <script src="{{ asset('dash/vendors/jqvmap/dist/jquery.vmap.js') }}"></script>
-    <script src="{{ asset('dash/vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
-    <script src="{{ asset('dash/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="{{ asset('dash/vendors/moment/min/moment.min.js') }}"></script>
-    <script src="{{ asset('dash/vendors/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+   <!-- jQuery -->
+   <script src="{{ asset('dash/vendors/jquery/dist/jquery.min.js') }}"></script>
+   <!-- Bootstrap -->
+   <script src="{{ asset('dash/vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+   <!-- FastClick -->
+   <script src="{{ asset('dash/vendors/fastclick/lib/fastclick.js') }}"></script>
+   <!-- NProgress -->
+   <script src="{{ asset('dash/vendors/nprogress/nprogress.js') }}"></script>
+   <!-- Chart.js -->
+   <script src="{{ asset('dash/vendors/Chart.js/dist/Chart.min.js') }}"></script>
+   <!-- gauge.js -->
+   <script src="{{ asset('dash/vendors/gauge.js/dist/gauge.min.js') }}"></script>
+   <!-- bootstrap-progressbar -->
+   <script src="{{ asset('dash/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js') }}"></script>
+   <!-- iCheck -->
+   <script src="{{ asset('dash/vendors/iCheck/icheck.min.js') }}"></script>
+   <!-- Skycons -->
+   <script src="{{ asset('dash/vendors/skycons/skycons.js') }}"></script>
+   <!-- Flot -->
+   <script src="{{ asset('dash/vendors/Flot/jquery.flot.js') }}"></script>
+   <script src="{{ asset('dash/vendors/Flot/jquery.flot.pie.js') }}"></script>
+   <script src="{{ asset('dash/vendors/Flot/jquery.flot.time.js') }}"></script>
+   <script src="{{ asset('dash/vendors/Flot/jquery.flot.stack.js') }}"></script>
+   <script src="{{ asset('dash/vendors/Flot/jquery.flot.resize.js') }}"></script>
+   <!-- Flot plugins -->
+   <script src="{{ asset('dash/vendors/flot.orderbars/js/jquery.flot.orderBars.js') }}"></script>
+   <script src="{{ asset('dash/vendors/flot-spline/js/jquery.flot.spline.min.js') }}"></script>
+   <script src="{{ asset('dash/vendors/flot.curvedlines/curvedLines.js') }}"></script>
+   <!-- DateJS -->
+   <script src="{{ asset('dash/vendors/DateJS/build/date.js') }}"></script>
+   <!-- JQVMap -->
+   <script src="{{ asset('dash/vendors/jqvmap/dist/jquery.vmap.js') }}"></script>
+   <script src="{{ asset('dash/vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+   <script src="{{ asset('dash/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
+   <!-- bootstrap-daterangepicker -->
+   <script src="{{ asset('dash/vendors/moment/min/moment.min.js') }}"></script>
+   <script src="{{ asset('dash/vendors/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
 
-    <!-- Custom Theme Scripts -->
-    <script src="{{ asset('dash/build/js/custom.min.js') }}"></script>
-
-    {{-- Link JQUERY --}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
-     {{-- LINK JQUERY --}}
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+   <!-- Custom Theme Scripts -->
+   <script src="{{ asset('dash/build/js/custom.min.js') }}"></script>
 
 </body>
 
