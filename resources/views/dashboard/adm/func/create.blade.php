@@ -185,16 +185,6 @@
                                 </div>
 
                                 <div class="field item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Repita a senha<span
-                                            class="required">*</span></label>
-                                    <div class="col-md-6 col-sm-6">
-                                        <input class="form-control" type="password" name="password2"
-                                            data-validate-linked='password' required='required' />
-                                    </div>
-                                </div>
-
-
-                                <div class="field item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3  label-align">Altura<span
                                             class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6">
@@ -212,13 +202,7 @@
                                 </div>
 
 
-                                <div class="field item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3  label-align">message<span
-                                            class="required">*</span></label>
-                                    <div class="col-md-6 col-sm-6">
-                                        <textarea required="required" name='message'></textarea>
-                                    </div>
-                                </div>
+                               
                                 <div class="field item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3  label-align">Plano<span
                                             class="required">*</span></label>
@@ -228,6 +212,154 @@
                                             <option value="press">Padrão</option>
                                             <option value="net">Básico</option>
                                     </div></select>
+                                </div>
+
+                            </div>
+
+
+
+                            </div>
+
+                            {{-- fim div teste --}}
+
+                            <div class="bloco">
+                                <p></code> <a
+                                        href="form.html"></a>
+                                </p>
+                                <span class="section"></span>
+
+                                <div class="field item form-group" style="margin-top: 10px;">
+                                    <label class="col-form-label col-md-3 col-sm-3">Nome<span
+                                            class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6">
+                                        <input class="form-control" data-validate-length-range="6" data-validate-words="2"
+                                            name="nome" placeholder="ex. John f. Kennedy" required="required" />
+                                    </div>
+                                </div>
+
+                                <div class="field item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Telefone<span
+                                            class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6">
+                                        <input class="form-control" type="text" class='number' name="telefone"
+                                            data-validate-minmax="8,20" required='required'>
+                                    </div>
+                                </div>
+
+                                <div class="field item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Endereço<span
+                                            class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6">
+                                        <input class="form-control" class='optional' name="endereço"
+                                            data-validate-length-range="5,15" type="text" />
+                                    </div>
+                                </div>
+
+                                <div class="field item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Cidade<span
+                                            class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6">
+                                        <input class="form-control" class='optional' name="cidade"
+                                            data-validate-length-range="5,15" type="text" />
+                                    </div>
+                                </div>
+
+                                <div class="field item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Estado<span
+                                            class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6">
+                                        <input class="form-control" class='optional' name="estado"
+                                            data-validate-length-range="5,15" type="text" />
+                                    </div>
+                                </div>
+                                <div class="field item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3  label-align">CEP<span
+                                            class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6">
+                                        <input class="form-control" type="text" class='cep' name="numero"
+                                            data-validate-minmax="10,100" required='required'>
+                                    </div>
+                                </div>
+
+                                <div class="field item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Data de Nasc<span
+                                            class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6">
+                                        <input class="form-control" class='date' type="date" name="nasc"
+                                            required='required'>
+                                    </div>
+                                </div>
+
+                                <div class="field item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Cargo<span
+                                            class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6">
+                                        <input class="form-control" class='date' type="text" name="nasc"
+                                            required='required'>
+                                    </div>
+                                </div>
+
+                                <div class="field item form-group">
+                                    <label for="currency-field"
+                                        class="col-form-label col-md-3 col-sm-3  label-align">Salário<span
+                                            class="required"></span></label>
+
+                                    <div class="col-md-6 col-sm-6">
+                                        <input class="form-control" class='date' type="text" required='required'
+                                            name="currency-field" id="currency-field"
+                                            pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency"
+                                            placeholder="$1,000,000.00">
+                                    </div>
+                                </div>
+
+                                
+
+
+
+
+
+                                <div class="field item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3  label-align">email<span
+                                            class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6">
+                                        <input class="form-control" name="email" class='email' required="required"
+                                            type="email" />
+                                    </div>
+                                </div>
+                                <div class="field item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Confirme seu email<span
+                                            class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6">
+                                        <input class="form-control" type="email" class='email' name="confirm_email"
+                                            data-validate-linked='email' required='required' />
+                                    </div>
+                                </div>
+
+
+
+                                <div class="field item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Senha<span
+                                            class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6">
+                                        <input class="form-control" type="password" id="password1" name="password1"
+                                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}"
+                                            title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character"
+                                            required />
+
+                                        <span style="position: absolute;right:15px;top:7px;" onclick="hideshow()">
+                                            <i id="slash" class="fa fa-eye-slash"></i>
+                                            <i id="eye" class="fa fa-eye"></i>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                
+                                <div class="field item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3  label-align">message<span
+                                            class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6">
+                                        <textarea required="required" name='message'></textarea>
+                                    </div>
                                 </div>
 
 
@@ -239,25 +371,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-
-
-                            {{-- fim div teste --}}
-                            </div>
-                            <div class="bloco">
-                                <div class="field item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3  label-align">Plano<span
-                                            class="required">*</span></label>
-                                    <div class="col-md-6 col-sm-6">
-                                        <select id="heard" class="form-control" required>
-                                            <option value="">Premium</option>
-                                            <option value="press">Padrão</option>
-                                            <option value="net">Básico</option>
-                                    </div></select>
-                                </div>
-
-                            </div>
+                                                </div>
 
                             </div>
                             </form>
