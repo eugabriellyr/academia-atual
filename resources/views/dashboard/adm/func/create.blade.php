@@ -73,8 +73,8 @@
                                                     class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <input class="form-control" data-validate-length-range="6"
-                                                    data-validate-words="2" name="nome" placeholder="ex. John f. Kennedy"
-                                                    required="required" />
+                                                    data-validate-words="2" name="nomeFuncionario" id="nomeFuncionario" placeholder="ex. John f. Kennedy"
+                                                    required="required" value="{{ old('nomeFuncionario') }}" />
                                             </div>
                                         </div>
 
@@ -82,8 +82,8 @@
                                             <label class="col-form-label col-md-3 col-sm-3">Telefone<span
                                                     class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" type="text" class='number' name="telefone"
-                                                    data-validate-minmax="8,20" required='required'>
+                                                <input class="form-control" type="text" class='number' name="foneFuncionario" id="foneFuncionario"
+                                                    data-validate-minmax="8,20" required='required' value="{{ old('foneFuncionario') }}">
                                             </div>
                                         </div>
 
@@ -91,8 +91,8 @@
                                             <label class="col-form-label col-md-3 col-sm-3">Endereço<span
                                                     class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='optional' name="endereço"
-                                                    data-validate-length-range="5,15" type="text" />
+                                                <input class="form-control" class='optional' name="enderecoFuncionario" id="enderecoFuncionario"
+                                                    data-validate-length-range="5,15" type="text" value="{{ old('enderecoFuncionario') }}" />
                                             </div>
                                         </div>
 
@@ -100,8 +100,8 @@
                                             <label class="col-form-label col-md-3 col-sm-3">Cidade<span
                                                     class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='optional' name="cidade"
-                                                    data-validate-length-range="5,15" type="text" />
+                                                <input class="form-control" class='optional' name="cidadeFuncionario" id="cidadeFuncionario"
+                                                    data-validate-length-range="5,15" type="text" value="{{ old('cidadeFuncionario') }}" />
                                             </div>
                                         </div>
 
@@ -109,16 +109,16 @@
                                             <label class="col-form-label col-md-3 col-sm-3">Estado<span
                                                     class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='optional' name="estado"
-                                                    data-validate-length-range="5,15" type="text" />
+                                                <input class="form-control" class='optional' name="estadoFuncionario" id="estadoFuncionario"
+                                                    data-validate-length-range="5,15" type="text" value="{{ old('estadoFuncionario') }}"/>
                                             </div>
                                         </div>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3">CEP<span
                                                     class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" type="text" class='cep' name="numero"
-                                                    data-validate-minmax="10,100" required='required'>
+                                                <input class="form-control" type="text" class='cep' name="cepFuncionario" id="cepFuncionario"
+                                                    data-validate-minmax="10,100" required='required' value="{{ old('cepFuncionario') }}">
                                             </div>
                                         </div>
 
@@ -126,23 +126,27 @@
                                             <label class="col-form-label col-md-3 col-sm-3">Data de Nascimento<span
                                                     class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="nasc"
-                                                    required='required'>
+                                                <input class="form-control" class='date' type="date" name="dataNasciFunc" id="dataNasciFunc"
+                                                    required='required' value="{{ old('dataNasciFunc') }}">
                                             </div>
                                         </div>
+
                                     </div>
 
                                     <div class="bloco">
                                         <span class="section">.</span>
 
+
+
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3">Cargo<span
                                                     class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="text" name="nasc"
-                                                    required='required'>
+                                                <input class="form-control" class='date' type="text" name="cargoFuncionario" id="cargoFuncionario"
+                                                    required='required' value="{{ old('cargoFuncionario') }}">
                                             </div>
                                         </div>
+
                                         <div class="field item form-group">
                                             <label for="currency-field"
                                                 class="col-form-label col-md-3 col-sm-3">Salário<span
@@ -150,8 +154,8 @@
 
                                             <div class="col-md-6 col-sm-6">
                                                 <input class="form-control" class='date' type="text"
-                                                    required='required' name="currency-field" id="currency-field"
-                                                    pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value=""
+                                                    required='required' name="currency-field salarioFuncionario" id="currency-field salarioFuncionario"
+                                                    pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="{{ old('salarioFuncionario') }}"
                                                     data-type="currency" placeholder="$1,000,000.00">
                                             </div>
                                         </div>
@@ -161,12 +165,12 @@
                                             <label class="col-form-label col-md-3 col-sm-3">Email<span
                                                     class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="email" class='email'
-                                                    required="required" type="email" />
+                                                <input class="form-control" name="emailFuncionario" class='email' id="emailFuncionario"
+                                                    required="required" type="email" value="{{ old('emailFuncionario') }}" />
                                             </div>
                                         </div>
 
-                                        <div class="field item form-group">
+                                        {{-- <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3">Senha<span
                                                     class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
@@ -181,7 +185,28 @@
                                                     <i id="eye" class="fa fa-eye"></i>
                                                 </span>
                                             </div>
+                                        </div> --}}
+
+                                        {{-- <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3">Tipo Funcionário<span
+                                                    class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <select id="heard" name="tipoFuncionario" class="form-control" required>
+                                                    <option value="{{ old('tipoFuncionario') }}">administrador</option>
+                                                    <option value="{{ old('tipoFuncionario') }}">instrutores</option>
+                                            </div></select>
+                                        </div> --}}
+
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3">Tipo Funcionário<span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <select id="heard" name="tipoFuncionario" class="form-control" required>
+                                                    <option value="administrador">Administrador</option>
+                                                    <option value="instrutor">Instrutores</option>
+                                                </select>
+                                            </div>
                                         </div>
+
 
 
                                         <div class="field item form-group">
