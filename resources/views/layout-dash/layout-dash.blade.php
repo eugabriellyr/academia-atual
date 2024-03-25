@@ -35,6 +35,15 @@
 
 </head>
 
+<style>
+    .left_col {
+        /* position: fixed */
+    }
+    section{
+        background: #2A3F54
+    }
+</style>
+
 <body class="nav-md" style="background: #fff">
 
     <div class="container body">

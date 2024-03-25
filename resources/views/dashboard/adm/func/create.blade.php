@@ -10,13 +10,12 @@
     <style>
         /*  Botão Submit*/
         .ln_solid {
-    border-top: 0px solid #e5e5e5;
-    color: #ffffff;
-    background-color: #ffffff;
-    height: 100%!important;
-    margin: 25px 0!important;
-}
-
+            border-top: 0px solid #e5e5e5;
+            color: #ffffff;
+            background-color: #ffffff;
+            height: 100% !important;
+            margin: 25px 0 !important;
+        }
     </style>
 
     <!-- page content -->
@@ -63,7 +62,8 @@
                         </div>
 
                         <div class="x_content">
-                            <form class="" action="" method="post" novalidate>
+                            <form  method="POST" class="" action="{{ route('dashboard.adm.func.cad') }}" >
+                                @csrf
                                 <div class="teste">
                                     <div class="bloco">
                                         <span class="section">Informações pessoais</span>
@@ -72,9 +72,14 @@
                                             <label class="col-form-label col-md-3 col-sm-3">Nome<span
                                                     class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="6"
-                                                    data-validate-words="2" name="nomeFuncionario" id="nomeFuncionario" placeholder="ex. John f. Kennedy"
-                                                    required="required" value="{{ old('nomeFuncionario') }}" />
+                                                <input class="form-control @error('nomeFuncionario') is-invalid @enderror "
+                                                    data-validate-length-range="6" data-validate-words="2"
+                                                    name="nomeFuncionario" id="nomeFuncionario"
+                                                    placeholder="ex. John f. Kennedy" required="required"
+                                                    value="{{ old('nomeFuncionario') }}" required />
+                                                @error('nomeFuncionario')
+                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -82,8 +87,13 @@
                                             <label class="col-form-label col-md-3 col-sm-3">Telefone<span
                                                     class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" type="text" class='number' name="foneFuncionario" id="foneFuncionario"
-                                                    data-validate-minmax="8,20" required='required' value="{{ old('foneFuncionario') }}">
+                                                <input class="form-control @error('foneFuncionario') is-invalid @enderror "
+                                                    type="text" class='number' name="foneFuncionario"
+                                                    id="foneFuncionario" data-validate-minmax="8,20" required='required'
+                                                    value="{{ old('foneFuncionario') }}" required>
+                                                @error('foneFuncionario')
+                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -91,8 +101,14 @@
                                             <label class="col-form-label col-md-3 col-sm-3">Endereço<span
                                                     class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='optional' name="enderecoFuncionario" id="enderecoFuncionario"
-                                                    data-validate-length-range="5,15" type="text" value="{{ old('enderecoFuncionario') }}" />
+                                                <input
+                                                    class="form-control @error('enderecoFuncionario') is-invalid @enderror "
+                                                    class='optional' name="enderecoFuncionario" id="enderecoFuncionario"
+                                                    data-validate-length-range="5,15" type="text"
+                                                    value="{{ old('enderecoFuncionario') }}" required />
+                                                @error('enderecoFuncionario')
+                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -100,8 +116,14 @@
                                             <label class="col-form-label col-md-3 col-sm-3">Cidade<span
                                                     class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='optional' name="cidadeFuncionario" id="cidadeFuncionario"
-                                                    data-validate-length-range="5,15" type="text" value="{{ old('cidadeFuncionario') }}" />
+                                                <input
+                                                    class="form-control @error('cidadeFuncionario') is-invalid @enderror "
+                                                    class='optional' name="cidadeFuncionario" id="cidadeFuncionario"
+                                                    data-validate-length-range="5,15" type="text"
+                                                    value="{{ old('cidadeFuncionario') }}" required />
+                                                @error('cidadeFuncionario')
+                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -109,16 +131,28 @@
                                             <label class="col-form-label col-md-3 col-sm-3">Estado<span
                                                     class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='optional' name="estadoFuncionario" id="estadoFuncionario"
-                                                    data-validate-length-range="5,15" type="text" value="{{ old('estadoFuncionario') }}"/>
+                                                <input class="form-control @error('estadoFuncionario') is-invalid @enderror"
+                                                    class='optional' name="estadoFuncionario" id="estadoFuncionario"
+                                                    data-validate-length-range="5,15" type="text"
+                                                    value="{{ old('estadoFuncionario') }}" required />
+                                                @error('estadoFuncionario')
+                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                @enderror
                                             </div>
+
                                         </div>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3">CEP<span
                                                     class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" type="text" class='cep' name="cepFuncionario" id="cepFuncionario"
-                                                    data-validate-minmax="10,100" required='required' value="{{ old('cepFuncionario') }}">
+                                                <input
+                                                    class="form-control @error('cepFuncionario') is-invalid @enderror"
+                                                    type="text" class='cep' name="cepFuncionario"
+                                                    id="cepFuncionario" data-validate-minmax="10,100" required='required'
+                                                    value="{{ old('cepFuncionario') }}" required>
+                                                @error('cepFuncionario')
+                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -126,8 +160,14 @@
                                             <label class="col-form-label col-md-3 col-sm-3">Data de Nascimento<span
                                                     class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="dataNasciFunc" id="dataNasciFunc"
-                                                    required='required' value="{{ old('dataNasciFunc') }}">
+                                                <input
+                                                    class="form-control @error('dataNasciFunc') is-invalid @enderror"
+                                                    class='date' type="date" name="dataNasciFunc"
+                                                    id="dataNasciFunc" required='required'
+                                                    value="{{ old('dataNasciFunc') }}" required>
+                                                @error('dataNasciFunc')
+                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -142,8 +182,14 @@
                                             <label class="col-form-label col-md-3 col-sm-3">Cargo<span
                                                     class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="text" name="cargoFuncionario" id="cargoFuncionario"
-                                                    required='required' value="{{ old('cargoFuncionario') }}">
+                                                <input
+                                                    class="form-control @error('cargoFuncionario') is-invalid @enderror"
+                                                    class='date' type="text" name="cargoFuncionario"
+                                                    id="cargoFuncionario" required='required'
+                                                    value="{{ old('cargoFuncionario') }}" required>
+                                                @error('cargoFuncionario')
+                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -153,11 +199,21 @@
                                                     class="required"></span></label>
 
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="text"
-                                                    required='required' name="currency-field salarioFuncionario" id="currency-field salarioFuncionario"
-                                                    pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="{{ old('salarioFuncionario') }}"
-                                                    data-type="currency" placeholder="$1,000,000.00">
+                                                <input
+                                                    class="form-control @error('salarioFuncionario') is-invalid @enderror"
+                                                    class='date' type="text" required='required'
+                                                    name="salarioFuncionario"
+                                                    name="currency-field"
+                                                    id="salarioFuncionario"
+                                                    id="currency-field"
+                                                    pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$"
+                                                    value="{{ old('salarioFuncionario') }}" required data-type="currency"
+                                                    placeholder="$1,000,000.00" >
+                                                @error('salarioFuncionario')
+                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                @enderror
                                             </div>
+
                                         </div>
 
 
@@ -165,8 +221,14 @@
                                             <label class="col-form-label col-md-3 col-sm-3">Email<span
                                                     class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="emailFuncionario" class='email' id="emailFuncionario"
-                                                    required="required" type="email" value="{{ old('emailFuncionario') }}" />
+                                                <input
+                                                    class="form-control @error('emailFuncionario') is-invalid @enderror"
+                                                    name="emailFuncionario" class='email' id="emailFuncionario"
+                                                    required="required" type="email"
+                                                    value="{{ old('emailFuncionario') }}" required />
+                                                @error('emailFuncionario')
+                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -174,11 +236,14 @@
                                             <label class="col-form-label col-md-3 col-sm-3">Senha<span
                                                     class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" type="password" id="password1"
+                                                <input class="form-control @error('estadoFuncionario') is-invalid @enderror" type="password" id="password1"
                                                     name="password1"
                                                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}"
                                                     title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character"
                                                     required />
+                                                    @error('estadoFuncionario')
+                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                    @enderror
 
                                                 <span style="position: absolute;right:15px;top:7px;" onclick="hideshow()">
                                                     <i id="slash" class="fa fa-eye-slash"></i>
@@ -191,18 +256,25 @@
                                             <label class="col-form-label col-md-3 col-sm-3">Tipo Funcionário<span
                                                     class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <select id="heard" name="tipoFuncionario" class="form-control" required>
-                                                    <option value="{{ old('tipoFuncionario') }}">administrador</option>
-                                                    <option value="{{ old('tipoFuncionario') }}">instrutores</option>
+                                                <select id="heard" name="tipoFuncionario" class="form-control @error('estadoFuncionario') is-invalid @enderror" required>
+                                                    <option value="{{ old('tipoFuncionario') }}" required>administrador</option>
+                                                    <option value="{{ old('tipoFuncionario') }}" required>instrutores</option>
                                             </div></select>
                                         </div> --}}
 
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3">Tipo Funcionário<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3">Tipo Funcionário<span
+                                                    class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <select id="heard" name="tipoFuncionario" class="form-control" required>
-                                                    <option value="administrador">Administrador</option>
-                                                    <option value="instrutor">Instrutores</option>
+                                                <select id="heard" name="tipoFuncionario"
+                                                    class="form-control @error('tipoFuncionario') is-invalid @enderror"
+                                                    required>
+                                                    <option value="administrativo">Administrador</option>
+                                                    <option value="instrutores">Instrutor</option>
+
+                                                    @error('tipoFuncionario')
+                                                        <span class="invalid-feedback">{{ $message }}</span>
+                                                    @enderror
                                                 </select>
                                             </div>
                                         </div>
@@ -210,23 +282,26 @@
 
 
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3">Observação<span
-                                                    class="required"></span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3 @error('obsFuncionario') is-invalid @enderror">Observação<span class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <textarea required="required" name='message' style="height: 100px"></textarea>
+                                                <textarea required="required" style="height: 100px" name="obsFuncionario">{{ old('obsFuncionario') }}</textarea>
+                                                @error('obsFuncionario')
+                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
+
 
 
                                         <div class="ln_solid">
                                             <div class="form-group">
                                                 <div class="col-md-6 offset-md-3">
-                                                    <button type='submit' class="btn btn-primary">Enviar</button>
+                                                    <button type='submit' onclick="{{ route('dashboard.adm.func.cad') }}" class="btn btn-primary">Enviar</button>
                                                     <button type='reset' class="btn btn-success">Limpar</button>
                                                 </div>
                                             </div>
                                         </div>
-                                </div>
+                                    </div>
                                     {{-- div teste --}}
                             </form>
                         </div>

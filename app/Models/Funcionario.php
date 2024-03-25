@@ -13,6 +13,9 @@ class Funcionario extends Model
     protected $primaryKey = 'idFuncionario';
     // A chave primária é idFuncionario.
 
+    protected $fillable = ['nomeFuncionario','emailFuncionario','foneFuncionario','enderecoFuncionario','cidadeFuncionario' , 'estadoFuncionario', 'cepFuncionario', 'dataNasciFunc', 'cargoFuncionario', 'tipoFuncionario', 'statusFuncionario', 'obsFuncionario'];
+    // identificar os campos
+
     public function usuario()
     { // Este método define uma relação
 

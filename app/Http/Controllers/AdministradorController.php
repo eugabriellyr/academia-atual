@@ -75,29 +75,24 @@ class AdministradorController extends Controller
 
        $request->validate([
 
-        'nomeFuncionario'       => 'required|string|max:100',
-        'emailFuncionario'      => 'required|email|max:100',
-        'foneFuncionario'       => 'required|string|max:20',
-        'enderecoFuncionario'   => 'required|string|max:255',
-        'cidadeFuncionario'     => 'required|string|max:100',
-        'estadoFuncionario'     => 'required|string|max:3',
-        'cepFuncionario'        => 'required|string|max:3',
-        'dataNasciFunc'         => 'required|string|max:100',
-        'cargoFuncionario'      => 'required|string|max:100',
-        'salarioFuncionario'    => 'required|decimal(10,2)',
-        'tipoFuncionario'       => 'required|string|max:100',
-        'statusFuncionario'     => 'required|string|max:20',
+        'nomeFuncionario'       => 'string|max:100',
+        'emailFuncionario'      => 'email|max:100',
+        'foneFuncionario'       => 'string|max:20',
+        'enderecoFuncionario'   => 'string|max:255',
+        'cidadeFuncionario'     => 'string|max:100',
+        'estadoFuncionario'     => 'string|max:3',
+        'cepFuncionario'        => 'string|max:8',
+        'dataNasciFunc'         => 'string|max:100',
+        'cargoFuncionario'      => 'string|max:100',
+        'salarioFuncionario'    => 'string|max:255',
+        'tipoFuncionario'       => 'string|in:administrativo,instrutores',
+        'statusFuncionario'     => 'string|max:20',
+        'obsFuncionario'        =>  'string|max:255',
+
        ]);
 
-        //Pega o último ID salvo no banco
-        $ultimoFuncionario = Funcionario::latest('idFuncionario')->first();
-        $ultimoID = $ultimoFuncionario ? $ultimoFuncionario->idFuncionario : 0;
 
-
-       //Incrementa o ID para obter o próximo
-       $proximoID = $ultimoID + 1;
-
-       $funcionario = new Funcionario();
+        $funcionario = new Funcionario();
 
         $funcionario->nomeFuncionario      = $request->input('nomeFuncionario');
         $funcionario->emailFuncionario     = $request->input('emailFuncionario');
@@ -108,13 +103,34 @@ class AdministradorController extends Controller
         $funcionario->cepFuncionario       = $request->input('cepFuncionario');
         $funcionario->dataNasciFunc        = $request->input('dataNasciFunc');
         $funcionario->cargoFuncionario     = $request->input('cargoFuncionario');
-        $funcionario->salarioFuncionario   = $request->input('salarioFuncionario');
+        $funcionario->salarioFuncionario   =  $request->input('salarioFuncionario');
         $funcionario->tipoFuncionario      = $request->input('tipoFuncionario');
-        $funcionario->statusFuncionario    = $request->input('statusFuncionario');
+        $funcionario->statusFuncionario    = 'ATIVO';
+        $funcionario->obsFuncionario       = $request->input('obsFuncionario');
+
 
         $funcionario->save();
 
         // Redireciona
         return redirect()->route('dashboard.adm.func.index')->with('success', 'Funcionário cadastrado com sucesso.');
+            // dd($request->all());
+            // dd('cheguei cad ');
+            // Resto do seu código...
+
+
+
+    // // Pega o último funcionário cadastrado
+    // $ultimoFuncionario = Funcionario::latest('idFuncionario')->first();
+
+    // // Verifica se encontrou algum funcionário anterior
+    // if ($ultimoFuncionario) {
+    //     // Incrementa o ID para obter o próximo
+    //     $proximoID = $ultimoFuncionario->idFuncionario + 1;
+    // } else {
+    //     // Se não houver funcionários anteriores, define o próximo ID como 1
+    //     $proximoID = 1;
+    // }
+
+
     }
 }
