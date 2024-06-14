@@ -70,5 +70,8 @@ class Kernel extends HttpKernel
 
         'autenticacao' => \App\Http\Middleware\AutAcademiaMiddle::class,
         // Apelido para o Middleware de autenticar
+
+        'aluno' => \App\Http\Middleware\UserIsAluno::class,
+           // Apelido para o Middleware de autenticar
     ];
 }

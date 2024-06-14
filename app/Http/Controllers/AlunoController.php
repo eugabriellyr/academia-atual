@@ -7,6 +7,7 @@ use App\Models\Aula;
 use App\Models\Funcionario;
 use App\Models\Matricula;
 use App\Models\Plano;
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -70,10 +71,7 @@ class AlunoController extends Controller
         }else{
             return view('dashboard.alunos.index');
         }
-
-
     }
-
 
     public function getMatricula($idAluno)
     {
@@ -126,4 +124,41 @@ class AlunoController extends Controller
 
         return response()->json(['aulas' => $aulas], 200);
     }
+
+    public function login(Request $request)
+{
+    $credentials = $request->validate([
+        'emailUsuario' => 'required|email',
+        'senhaUsuario' => 'required',
+    ]);
+
+    $usuario = Usuario::where('emailUsuario', $credentials['emailUsuario'])
+                      ->where('senhaUsuario', $credentials['senhaUsuario'])
+                      ->first();
+
+    if ($usuario && $usuario->tipo_usuario_type == 'aluno') {
+        $aluno = $usuario->tipoUsuario()->first();
+        if ($aluno) {
+            return response()->json([
+                'message' => 'Login bem sucedido',
+                'user' => [
+                    'id' => $usuario->idUsuario,
+                    'nome' => $usuario->nomeUsuario,
+                    'email' => $usuario->emailUsuario,
+                    'tipo' => $usuario->tipo_usuario_type,
+                    'dados_aluno' => [
+                        'idAluno' => $aluno->idAluno,
+                        'nome' => $aluno->nomeAluno,
+                    ],
+                ],
+                'access_token' => $usuario->createToken('auth_token')->plainTextToken,
+                'token_type' => 'Bearer',
+            ]);
+        }
+    }
+
+
+    return response()->json(['data' => ['message' => 'Credenciais inválidas ou usuário não é um aluno']], 401);
+}
+
 }

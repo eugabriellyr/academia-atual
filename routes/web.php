@@ -14,6 +14,7 @@ use App\Http\Controllers\TreinoController;
 use App\Http\Middleware\AutAcademiaMiddle;
 use App\Http\Middleware\LogAcessoAcademia;
 use App\Mail\ContatoEmail;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
 
 /*
