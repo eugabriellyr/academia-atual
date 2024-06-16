@@ -156,8 +156,6 @@ class AlunoController extends Controller
             ]);
         }
     }
-
-
     return response()->json(['data' => ['message' => 'Credenciais inválidas ou usuário não é um aluno']], 401);
 }
 

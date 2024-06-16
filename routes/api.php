@@ -21,6 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Rotas para AlunoController com middleware de autenticação e autorização
 Route::middleware(['auth:sanctum', 'aluno'])->group(function () {
+    // Rotas protegidas
     Route::apiResource('aluno', AlunoController::class);
     Route::get('aluno/{id}/matricula', [AlunoController::class, 'getMatricula']);
     Route::get('aluno/{id}/plano', [AlunoController::class, 'getPlano']);

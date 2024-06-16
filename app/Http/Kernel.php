@@ -39,11 +39,10 @@ class Kernel extends HttpKernel
 
             \App\Http\Middleware\LogAcessoAcademia::class,
             // Estrutura padrão, Middleware de acesso para todas as págs
-
         ],
 
         'api' => [
-            // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
@@ -72,6 +71,6 @@ class Kernel extends HttpKernel
         // Apelido para o Middleware de autenticar
 
         'aluno' => \App\Http\Middleware\UserIsAluno::class,
-           // Apelido para o Middleware de autenticar
+        // Apelido para o Middleware de autenticar
     ];
 }
