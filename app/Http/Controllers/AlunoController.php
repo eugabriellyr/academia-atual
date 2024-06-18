@@ -73,6 +73,17 @@ class AlunoController extends Controller
         }
     }
 
+    public function show($id)
+    {
+        $aluno = Aluno::find($id);
+
+        if (!$aluno) {
+            return response()->json(['message' => 'Aluno não encontrado'], 404);
+        }
+
+        return response()->json($aluno, 200);
+    }
+    
     public function getMatricula($idAluno)
     {
         $matricula = Matricula::where('idAluno', $idAluno)->first();

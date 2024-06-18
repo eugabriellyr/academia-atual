@@ -28,5 +28,6 @@ Route::middleware(['auth:sanctum', 'aluno'])->group(function () {
     Route::get('aluno/{id}/aula', [AlunoController::class, 'getAula']);
 });
 
+
 // Rota de login para API
 Route::post('/login', [AlunoController::class, 'login'])->name('login');

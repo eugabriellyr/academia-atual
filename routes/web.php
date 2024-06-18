@@ -80,8 +80,6 @@ route::put('/dashboard/admin/funcionario/{id}/',[AdministradorController::class,
 });
 
 
-
-
 // DASH
 route::middleware(['autenticacao:aluno'])->group(function(){
 route::get('/dashboard/aluno',[AlunoController::class, 'aluno'])->name('dashboard.aluno.aluno');
